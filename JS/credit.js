@@ -4,7 +4,7 @@ let ccNum;
 
 // Get cc number from user.
 do {
-	ccNum = prompt();
+	ccNum = prompt("Credit Card Number:");
 }
 
 // CC number has to be a non-negative integer
@@ -34,15 +34,21 @@ const evryOtherx2 = (num) => {
 	return everyOtherDigit(num).map( num => num * 2);
 };
 
+// Sums up the product of the digits after multiplying them by 2
 const addProducts = (num) => {
+	// This will store the array of digits that were multiplied by two
 	let arrx2 = evryOtherx2(num);
 	let sum = 0;
 	for (let i = 0, len = arrx2.length; i < len; i ++) {
+		// Stores the length of the current number from that array.
 		let numLen = getNumLen(arrx2[i]);
+		// Keep multiplying this by 10 to get each product (ex. 12 = 1 & 2) in a number. 
 		let denom = 1;
 
 		while (numLen > 0) {
+			// Adds the last product the first round
 			sum += parseInt((arrx2[i]/denom) % 10);
+			// Multiply denominator by 10 to get the next product and so on.
 			denom *= 10;
 			numLen --;
 		};
@@ -50,9 +56,21 @@ const addProducts = (num) => {
 	return sum;
 };
 
+// Sums up remaining digits that we did not Multiply by two
+const sumOtherDigits = (num) => {
+	let denom = 1;
+	let sum = 0;
+	for (let i = 0, len = Math.round(getNumLen(num)/2); i < len; i ++) {
+		sum += parseInt((num/denom)%10);
+		denom *= 100;
+	};
+	return sum;
+};
 
 
-console.log(addProducts(ccNum));
+
+
+
 
 
 
