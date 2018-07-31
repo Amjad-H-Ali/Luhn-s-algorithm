@@ -30,9 +30,8 @@ const everyOtherDigit = (num) => {
 };
 
 // Function Multiplies Every other digit by two
-const evryOtherx2 = (num) => {
-	return everyOtherDigit(num).map( num => num * 2);
-};
+const evryOtherx2 = num => everyOtherDigit(num).map( num => num * 2);
+
 
 // Sums up the product of the digits after multiplying them by 2
 const addProducts = (num) => {
@@ -68,16 +67,15 @@ const sumOtherDigits = (num) => {
 };
 
 // Add both sums.
-const sumItAll = (num) => {
-	return sumOtherDigits(num) + addProducts(num); 
-};
+const sumItAll = num => sumOtherDigits(num) + addProducts(num); 
 
-const first2Digits = (num) => {
-	return Math.floor(num/(10 ** (getNumLen(num) - 2)));
-};
+// Gets the first two digits of a number
+const first2Digits = num => Math.floor(num/(10 ** (getNumLen(num) - 2)));
 
+// Gets the first digit of a number
+const firstDigit = num => Math.floor(num/(10 ** (getNumLen(num) - 1)));
 
-console.log(first2Digits(ccNum));
+console.log(firstDigit(ccNum));
 
 
 
