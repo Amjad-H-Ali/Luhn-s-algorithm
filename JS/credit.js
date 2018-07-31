@@ -1,0 +1,1 @@
+console.log('Luhn\'s Algo: Credit.');
