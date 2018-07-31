@@ -29,4 +29,7 @@ const everyOtherDigit = (num) => {
 	return num_arr;
 };
 
-console.log(everyOtherDigit(ccNum));
+const mtlplyByTwo = (arr) => {
+	return arr.map( num => num * 2);
+};
+
