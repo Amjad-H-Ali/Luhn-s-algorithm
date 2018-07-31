@@ -23,3 +23,28 @@ AMEX
 ###### 3. If the total’s last digit is 0 (or, put more formally, if the total modulo 10 is congruent to 0), the number is valid!
 
 ###### That’s kind of confusing, so let’s try an example with my AmEx: 378282246310005.
+
+
+###### 0. For the sake of discussion, let’s first underline every other digit, starting with the number’s second-to-last digit:
+
+###### 378282246310005
+
+###### Okay, let’s multiply each of the underlined digits by 2:
+
+###### 7•2 + 2•2 + 2•2 + 4•2 + 3•2 + 0•2 + 0•2
+
+###### That gives us:
+
+###### 14 + 4 + 4 + 8 + 6 + 0 + 0
+
+###### Now let’s add those products' digits (i.e., not the products themselves) together:
+
+###### 1 + 4 + 4 + 4 + 8 + 6 + 0 + 0 = 27
+
+###### 1. Now let’s add that sum (27) to the sum of the digits that weren’t multiplied by 2:
+
+###### 27 + 3 + 8 + 8 + 2 + 6 + 1 + 0 + 5 = 60
+
+###### 2. Yup, the last digit in that sum (60) is a 0, so my card is legit!
+
+###### So, validating credit card numbers isn’t hard, but it does get a bit tedious by hand.
