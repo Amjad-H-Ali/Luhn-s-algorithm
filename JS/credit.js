@@ -34,3 +34,31 @@ const evryOtherx2 = (num) => {
 	return everyOtherDigit(num).map( num => num * 2);
 };
 
+const addProducts = (num) => {
+	let arrx2 = evryOtherx2(num);
+	let sum = 0;
+	for (let i = 0, len = arrx2.length; i < len; i ++) {
+		let numLen = getNumLen(arrx2[i]);
+		let denom = 1;
+
+		while (numLen > 0) {
+			sum += parseInt((arrx2[i]/denom) % 10);
+			denom *= 10;
+			numLen --;
+		};
+	};
+	return sum;
+};
+
+
+
+console.log(addProducts(ccNum));
+
+
+
+
+
+
+
+
+
