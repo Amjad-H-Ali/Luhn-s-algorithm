@@ -29,8 +29,8 @@ const everyOtherDigit = (num) => {
 	return num_arr;
 };
 
-const mtlplyByTwo = (num) => {
+// Function Multiplies Every other digit by two
+const evryOtherx2 = (num) => {
 	return everyOtherDigit(num).map( num => num * 2);
 };
 
-console.log(mtlplyByTwo(ccNum));
