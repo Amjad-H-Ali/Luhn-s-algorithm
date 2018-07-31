@@ -67,9 +67,17 @@ const sumOtherDigits = (num) => {
 	return sum;
 };
 
+// Add both sums.
+const sumItAll = (num) => {
+	return sumOtherDigits(num) + addProducts(num); 
+};
+
+const first2Digits = (num) => {
+	return Math.floor(num/(10 ** (getNumLen(num) - 2)));
+};
 
 
-
+console.log(first2Digits(ccNum));
 
 
 
