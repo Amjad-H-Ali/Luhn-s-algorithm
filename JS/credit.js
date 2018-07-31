@@ -1,4 +1,5 @@
 console.log('Luhn\'s Algo: Credit.');
+console.log('MasterCard, Visa, and AMEX only!!! Otherwise, Invalid');
 
 let ccNum;
 
@@ -70,12 +71,58 @@ const sumOtherDigits = (num) => {
 const sumItAll = num => sumOtherDigits(num) + addProducts(num); 
 
 // Gets the first two digits of a number
-const first2Digits = num => Math.floor(num/(10 ** (getNumLen(num) - 2)));
+const get1st2Digits = num => Math.floor(num/(10 ** (getNumLen(num) - 2)));
 
 // Gets the first digit of a number
-const firstDigit = num => Math.floor(num/(10 ** (getNumLen(num) - 1)));
+const get1stDigit = num => Math.floor(num/(10 ** (getNumLen(num) - 1)));
 
-console.log(firstDigit(ccNum));
+// And Finally, Check if Valid CC Card
+
+const isValidCC = (num) => {
+
+	const first2Digits = get1st2Digits(num);
+	const ccNumLen = getNumLen(num);
+	// Check final sum ends in 0
+	if (sumItAll(num) % 10 === 0) {
+		if ((first2Digits === 34 || first2Digits === 37) && ccNumLen === 15 ) { return "AMEX"}
+		else if (first2Digits >= 51 && first2Digits <= 55 && ccNumLen === 16) { return "MASTERCARD"}
+		else if (get1stDigit(num) === 4 && (ccNumLen === 13 || ccNumLen ===16 )) { return "VISA"}
+		else { return "Invalid!"}	
+	}
+	else { return "Invalid!"}
+};
+
+console.log(isValidCC(ccNum));
+
+
+
+// Try These
+
+// 378282246310005 // AMEX
+
+// 371449635398431 // AMEX
+
+// 5555555555554444 // MASTERCARD
+
+// 5105105105105100 // MASTERCARD
+
+// 4111111111111111 // VISA
+
+// 4012888888881881 // VISA 
+
+// 1234567890 // INVALID
+
+// 369421438430814 // INVALID
+
+// 4062901840 // INVALID
+
+// 5673598276138003 // INVALID
+
+// 4111111111111113 // INVALID
+
+// "foo" 
+
+// ""
 
 
 
